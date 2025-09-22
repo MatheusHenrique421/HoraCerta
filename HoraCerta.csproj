@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HoraCerta.AppService\HoraCerta.Application.csproj" />
+    <ProjectReference Include="..\HoraCerta.Infraestructure\HoraCerta.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
