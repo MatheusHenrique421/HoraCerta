@@ -1,4 +1,5 @@
 using HoraCerta.Models;
+using HoraCerta.Models.Shared;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

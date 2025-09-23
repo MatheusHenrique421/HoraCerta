@@ -1,0 +1,82 @@
+﻿@using HoraCerta.Models.Shared
+@model HoraCerta.Models.AgendamentoViewModel
+
+@{
+    ViewData["Title"] = "Criar Agendamento";
+}
+
+<section class="container-fluid">
+    <header class="mb-4">
+        <h1 class="display-6">@ViewData["Title"]</h1>
+        <p class="text-muted">Preencha os dados para registrar um novo agendamento.</p>
+    </header>
+
+    <main>
+        <form id="formAgendamento" asp-action="Criar" method="post">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="mb-3">
+                        <label asp-for="Data" class="form-label">Agendamento<span class="text-danger">*</span></label>
+                        <input asp-for="Data" type="date" class="form-control" />
+                        <span asp-validation-for="Data" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="mb-3">
+                        <label asp-for="Hora" class="form-label">Hora<span class="text-danger">*</span></label>
+                        <input asp-for="Hora" type="time" class="form-control" value="@Model.Hora.ToString(@"hh\:mm")" />
+                        <span asp-validation-for="Hora" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="mb-3">
+                        <label asp-for="PessoaId" class="form-label">Cliente<span class="text-danger">*</span></label>
+                        <select asp-for="PessoaId" asp-items="Model.Pessoas" class="form-select">
+                            <option value="">Selecione um cliente</option>
+                        </select>
+                        <span asp-validation-for="PessoaId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="ProfissionalId" class="form-label">Profissional<span class="text-danger">*</span></label>
+                        <select asp-for="ProfissionalId" asp-items="Model.Profissionais" class="form-select">
+                            <option value="">Selecione um profissional</option>
+                        </select>
+                        <span asp-validation-for="ProfissionalId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="ServicoId" class="form-label">Serviço<span class="text-danger">*</span></label>
+                        <select asp-for="ServicoId" asp-items="Model.Servicos" class="form-select">
+                            <option value="">Selecione um serviço</option>
+                        </select>
+                        <span asp-validation-for="ServicoId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label asp-for="Observacao" class="form-label">Observação</label>
+                        <textarea asp-for="Observacao" class="form-control"></textarea>
+                        <span asp-validation-for="Observacao" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            @await Html.PartialAsync("_FormButtons", new FormButtonsViewModel { ButtonText = "Salvar", BackAction = "Index" })
+        </form>
+    </main>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/js/agendamento/criar.js"></script>
+}
