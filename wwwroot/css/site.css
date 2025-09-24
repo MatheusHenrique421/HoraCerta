@@ -1,22 +1,147 @@
+/* Reset e configuração base */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    height: 100%;
+}
+
+/* Media queries para responsividade */
+/*@media (min-width: 576px) {
+    html {
+        font-size: 15px;
+    }
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+@media (min-width: 992px) {
+    html {
+        font-size: 17px;
+    }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
+@media (min-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+}*/
 
+/* Body configuração com Flexbox */
 body {
-  margin-bottom: 60px;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar Largura responsiva - diferentes tamanhos conforme o dispositivo */
+#sidebar {
+    width: 320px !important;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        width: 280px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    #sidebar {
+        width: 100% !important;
+    }
+}
+
+/* Container principal que crescerá para ocupar o espaço disponível */
+.container {
+    flex: 1 0 auto;
+}
+
+/* Footer configuração - ficará sempre no final */
+.footer {    
+    padding: 1rem 0;
+}
+
+/* Estados de foco melhorados */
+.form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    outline: none;
+}
+
+/* Estados de foco removidos */
+.navbar-toggler, .btn:focus, .btn:active, .navbar-brand {
+    outline: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+}
+
+/* Melhorias para dispositivos móveis */
+@media (max-width: 767.98px) {
+    /* Botões maiores em mobile */
+    .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 1.1rem;
+    }
+
+    /* Inputs mais acessíveis */
+    .form-control, .form-select {
+        font-size: 16px; /* Evita zoom no iOS */
+        padding: 0.75rem;
+    }
+
+    /* Cards com melhor espaçamento */
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    /* Tabelas responsivas */
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+}
+
+/* Melhorias para tablets */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .container-fluid {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* Melhorias gerais de acessibilidade */
+.btn, .form-control, .card, .nav-link {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover states para desktop */
+@media (min-width: 992px) {
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+
+    .card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Utility classes para espaçamento responsivo */
+@media (max-width: 575.98px) {
+    .px-mobile-2 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .py-mobile-3 {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+}
+
+/* Fix para imagens responsivas */
+img {
+    max-width: 100%;
+    height: auto;
 }

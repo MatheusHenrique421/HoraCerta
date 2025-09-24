@@ -1,0 +1,41 @@
+﻿<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="sidebarLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+        <nav class="nav flex-column">
+            <a class="nav-link text-dark border-bottom" asp-area="" asp-controller="Home" asp-action="Index">
+                <i class="fas fa-home me-2"></i>Home
+            </a>
+            <a class="nav-link text-dark border-bottom" asp-area="" asp-controller="Servico" asp-action="Criar">
+                <i class="fas fa-cogs me-2"></i>Serviço
+            </a>
+            <a class="nav-link text-dark border-bottom" asp-area="" asp-controller="Agendamento" asp-action="Criar">
+                <i class="fas fa-calendar-plus me-2"></i>Agendar
+            </a>
+            <a class="nav-link text-dark border-bottom" asp-area="" asp-controller="Home" asp-action="Privacy">
+                <i class="fas fa-shield-alt me-2"></i>Privacy
+            </a>
+
+            <!-- Separador -->
+            <hr class="mx-3 my-2">
+
+            <!-- Toggle de Tema -->
+            <div class="px-4 py-2">
+                <div class="d-flex align-items-center justify-content-between">
+                    <span class="text-muted small">
+                        <i class="fas fa-palette me-2"></i>Tema
+                    </span>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="themeToggle">
+                        <label class="form-check-label ms-2" for="themeToggle" id="themeLabel">
+                            <i class="fas fa-sun" id="themeIcon"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </div>
+</div>
