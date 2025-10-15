@@ -1,6 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
+
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<h2>Counter</h2>
+<p id="counter-value">Current count: </p>
+
+<button class="btn btn-primary" onclick="incrementCount()">Click me</button>
+
+@section Scripts {
+    <script>
+        let currentCount = 0;
+
+        function incrementCount() {
+            currentCount++;
+            document.getElementById('counter-value').innerText = `Current count: ${currentCount}`;
+        }
+    </script>
+}

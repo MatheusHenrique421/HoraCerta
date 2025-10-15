@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace HoraCerta.Controllers
+namespace HoraCerta.Controllers;
+
+public class ServicoController : Controller
 {
-	public class ServicoController : Controller
+	public IActionResult Criar()
 	{
-		public IActionResult Criar()
-		{
-			return this.View();
-		}
+		return this.View();
 	}
 }

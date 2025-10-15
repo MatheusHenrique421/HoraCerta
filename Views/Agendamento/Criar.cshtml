@@ -12,7 +12,7 @@
     </header>
 
     <main>
-        <form id="formAgendamento" asp-action="Criar" method="post">
+        <form id="formAgendamento" asp-action="Criar" method="post" novalidate>
             <div class="row">
                 <div class="col-sm-2">
                     <div class="mb-3">
@@ -78,5 +78,10 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <!-- jQuery (necessário para o Inputmask funcionar com $) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Biblioteca Inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
     <script src="~/js/agendamento/criar.js"></script>
 }

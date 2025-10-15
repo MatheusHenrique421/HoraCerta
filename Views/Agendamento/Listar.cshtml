@@ -1,0 +1,83 @@
+﻿@model HoraCerta.Models.CalendarioViewModel
+
+@{
+    ViewData["Title"] = "Agenda Mensal";
+    var primeiroDia = new DateTime(Model.Ano, Model.Mes, 1);
+    var diasNoMes = DateTime.DaysInMonth(Model.Ano, Model.Mes);
+    var inicioSemana = (int)primeiroDia.DayOfWeek; // 0 = domingo
+}
+
+<section class="container-fluid">
+    <header class="mb-4 text-center">
+        <h1 class="display-6">@ViewData["Title"]</h1>
+        <p class="text-muted">@Model.NomeMes</p>
+
+        <div class="d-flex justify-content-center gap-2">
+            <a asp-action="Listar" asp-route-ano="@Model.Ano" asp-route-mes="@(Model.Mes == 1 ? 12 : Model.Mes - 1)"
+               class="btn btn-outline-secondary btn-sm">&lt; Mês anterior</a>
+
+            <a asp-action="Listar" asp-route-ano="@Model.Ano" asp-route-mes="@(Model.Mes == 12 ? 1 : Model.Mes + 1)"
+               class="btn btn-outline-secondary btn-sm">Próximo mês &gt;</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="table-responsive">
+            <table class="table table-bordered text-center align-middle shadow-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th>Dom</th>
+                        <th>Seg</th>
+                        <th>Ter</th>
+                        <th>Qua</th>
+                        <th>Qui</th>
+                        <th>Sex</th>
+                        <th>Sáb</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var dia = 1;
+                        for (int linha = 0; linha < 6; linha++)
+                        {
+                            <tr>
+                                @for (int coluna = 0; coluna < 7; coluna++)
+                                {
+                                    if ((linha == 0 && coluna < inicioSemana) || dia > diasNoMes)
+                                    {
+                                        <td class="bg-light"></td>
+                                    }
+                                    else
+                                    {
+                                        var dataAtual = new DateTime(Model.Ano, Model.Mes, dia);
+                                        var eventos = Model.Agendamentos.Where(a => a.Data.Date == dataAtual.Date).ToList();
+
+                                        <td class="p-2" style="height: 120px; vertical-align: top;">
+                                            <div class="fw-semibold">@dia</div>
+                                            @if (eventos.Any())
+                                            {
+                                                foreach (var e in eventos)
+                                                {
+                                                    <div class="small bg-primary text-white rounded px-1 my-1">
+                                                        <span>ASD  @e.Pessoas</span><br />
+                                                        <span class="small">123  @e.Servicos</span>
+                                                    </div>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <div class="text-muted small">–</div>
+                                            }
+                                        </td>
+
+                                        dia++;
+                                    }
+                                }
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </main>
+</section>

@@ -1,0 +1,89 @@
+﻿@model HoraCerta.Models.ProfissionalViewModel
+@using HoraCerta.Models.Shared
+
+@{
+    ViewData["Title"] = "Lista de Profissionais";
+}
+
+<section class="container-fluid">
+    <header class="mb-4">
+        <h1 class="display-6">@ViewData["Title"]</h1>
+        <p class="text-muted">Preencha o filtro para buscar por um profissional.</p>
+    </header>
+
+    <main>
+        <!-- Filtro -->
+        <form method="get" asp-action="Index" class="row g-3 align-items-center mb-4">
+            <div class="col-auto flex-grow-1">
+                <input type="text" name="nome" value="" class="form-control shadow-sm" placeholder="Digite o nome do profissional..." />
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-outline-primary shadow-sm">
+                    <i class="bi bi-search"></i> Buscar
+                </button>
+            </div>
+            <div class="col-auto">
+                <a asp-action="Criar" class="btn btn-outline-success shadow-sm">
+                    <i class="bi bi-plus-circle"></i> Novo Profissional
+                </a>
+            </div>
+        </form>
+
+        <!-- Lista -->
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Nome</th>
+                            <th>WhatsApp</th>
+                            <th>Especialidades</th>
+                            <th class="text-end">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-end">
+                                <a asp-action="Editar" asp-route-id="Id" class="btn btn-sm btn-outline-secondary">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a asp-action="Detalhes" asp-route-id="Id" class="btn btn-sm btn-outline-info">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a asp-action="Excluir" asp-route-id="Id" class="btn btn-sm btn-outline-danger">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <p class="text-muted text-center mb-0 py-3">
+                    Nenhum profissional encontrado.
+                </p>
+
+
+            </div>
+        </div>
+
+    </main>
+</section>
+
+@section Scripts {
+    @{
+        // await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    @* <!-- jQuery (necessário para o Inputmask funcionar com $) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Biblioteca Inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
+    <script src="~/js/profissional/criar.js"></script> *@
+}
