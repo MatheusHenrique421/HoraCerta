@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoraCerta.Domain", "HoraCer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoraCerta.Infrastructure", "HoraCerta.Infrastructure\HoraCerta.Infrastructure.csproj", "{A48A1E02-DE6E-4ED4-94D5-91952D34D25E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 -CrossCutting", "05 -CrossCutting", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoraCerta.CrossCutting", "HoraCerta.CrossCutting\HoraCerta.CrossCutting.csproj", "{B2A7AB51-C6F7-4B79-B3E8-46961FB93BFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

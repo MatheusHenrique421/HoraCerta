@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\HoraCerta.AppService\HoraCerta.Application.csproj" />
+    <ProjectReference Include="..\..\HoraCerta.Infraestructure\HoraCerta.Infrastructure.csproj" />
+    <ProjectReference Include="..\HoraCerta.csproj" />
+  </ItemGroup>
+
+</Project>
